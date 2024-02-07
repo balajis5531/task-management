@@ -1,0 +1,30 @@
+<nav id="navigation-bar">
+  <ul class="items-container">
+    <li class="item" title="home">
+      <LinkTo @route="index" class="hyper-link">
+        <div class="icon-wrapper">
+          <span class="material-icons">home</span>
+        </div>
+        <span class="item-text">Home</span>
+      </LinkTo>
+    </li>
+    <li class="item" title="create-task">
+      <LinkTo @route="task-create" class="hyper-link">
+        <div class="icon-wrapper">
+          <span class="material-icons">create</span>
+        </div>
+        <span class="item-text">Create Task</span>
+      </LinkTo>
+    </li>
+   
+    <li class="item" title="task-list">
+      <LinkTo @route="task-list" class="hyper-link">
+        <div class="icon-wrapper">
+          <span class="material-icons">list</span>
+        </div>
+        <span class="item-text">Task List</span>
+      </LinkTo>
+    </li>
+
+  </ul>
+</nav>

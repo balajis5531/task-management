@@ -7,4 +7,8 @@ export default class Router extends EmberRouter {
 }
 
 Router.map(function() {
+  this.route('task-create');
+  this.route('task-list');
+  this.route('task-view', { path: 'task-view/:task_id' });
+  this.route('task-edit', { path: 'task-edit/:task_id' });
 });

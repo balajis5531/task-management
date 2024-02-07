@@ -1,0 +1,60 @@
+ <link rel="stylesheet" type="text/css" href="{{rootURL}}assets/card.css">
+
+<div class="filter-main-div">
+ <div class="form-group">
+  <label for="status" class="col-sm-2 control-label">Status:</label>
+  <div class="col-sm-10">
+    <select id="status" class="form-control" onchange={{action (mut status) value="target.value"}}>
+      <option value="all">All</option>
+      <option value="todo">To-Do</option>
+      <option value="in-progress">In Progress</option>
+      <option value="done">Done</option>
+    </select>
+  </div>
+</div>
+
+
+ <div class="form-group">
+  <label for="priority" class="col-sm-2 control-label">Status:</label>
+  <div class="col-sm-10">
+    <select id="priority" class="form-control" onchange={{action (mut priority) value="target.value"}}>
+      <option value="all">All</option>
+      <option value="low">Low</option>
+      <option value="medium">Medium</option>
+      <option value="high">High</option>
+    </select>
+  </div>
+</div>
+
+<div class="form-group">
+  <label for="search" class="col-sm-2 control-label">Search:</label>
+  <div class="col-sm-10">
+    {{input id="search" class="form-control" value=search placeholder="Search"}}
+  </div>
+</div>
+
+</div>
+
+<div class="card-container">
+  {{#each model as |task|}}
+    <div class="card shadow mb-4">
+      <div class="card-header">
+        <h3 class="card-title">{{task.title}}</h3>
+      </div>
+      <div class="card-body">
+        <p class="card-text">{{task.description}}</p>
+        <p><strong>Priority:</strong> {{task.priority}}</p>
+        <p><strong>Status:</strong> {{task.status}}</p>
+      </div>
+      <div class="card-footer">
+        <button class="btn btn-primary" {{action "editTask" task}}>Edit</button>
+        <button class="btn btn-danger" {{action "deleteTask" task}}>Delete</button>
+        <button class="btn btn-info" {{action "viewTask" task}}>View</button>
+        {{#if (not-equal task.status 'done')}}
+  <button class="btn btn-success" {{action "completeTask" task}}>Complete</button>
+{{/if}}
+      </div>
+    </div>
+  {{/each}}
+</div>
+
